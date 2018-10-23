@@ -1,0 +1,21 @@
+<div id="m_aside_left" class="m-grid__item	m-aside-left  m-aside-left--skin-dark ">
+  <!-- BEGIN: Aside Menu -->
+  <div id="m_ver_menu" class="m-aside-menu  m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark m-aside-menu--dropdown "
+    data-menu-vertical="true" data-menu-dropdown="true" data-menu-scrollable="true" data-menu-dropdown-timeout="500">
+    <ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
+
+      <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true" data-menu-submenu-toggle="hover" data-redirect="true"
+        routerLinkActive="m-menu__item--active" [routerLinkActiveOptions]="{exact: true}" *ngFor="let menulist of menulists">
+        <a [routerLink]="menulist.url" class="m-menu__link m-menu__toggle">
+          <!-- <span class="m-menu__item-here"></span> -->
+          <i class="m-menu__link-icon {{menulist.icon}}"></i>
+          <span class="m-menu__link-text">
+            {{ menulist.menuName }}
+          </span>
+          <i class="m-menu__ver-arrow fa fa-angle-right"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!-- END: Aside Menu -->
+</div>

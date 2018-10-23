@@ -1,0 +1,15 @@
+
+.my-pagination /deep/ {
+  width: 100%;
+
+  .ngx-pagination /deep/ {
+    width: 100%;
+    justify-content: flex-end;
+    padding: 10px 50px;
+    display: flex;
+
+    .current {
+      background: #5867dd;
+    }
+  }
+}

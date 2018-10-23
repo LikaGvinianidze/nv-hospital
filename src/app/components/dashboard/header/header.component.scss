@@ -1,0 +1,24 @@
+:host {
+  .m-loading-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+  ::ng-deep {
+    .mat-progress-bar-background {
+      opacity: 0;
+    }
+    .mat-progress-bar-buffer {
+      opacity: 0.3;
+    }
+  }
+}
+
+.m-brand {
+  padding: 0px !important;
+  .m-brand__logo-wrapper img {
+    width: 73%;
+  }
+}

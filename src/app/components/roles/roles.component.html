@@ -1,0 +1,10 @@
+<h1>Roles</h1>
+<div>
+  Roles from secure api end point:
+  <ul>
+    <li *ngFor="let role of roles">{{role.id}} {{role.attributes.name}}</li>
+  </ul>
+</div>
+<p>
+  <a [routerLink]="['/login']">Logout</a>
+</p>

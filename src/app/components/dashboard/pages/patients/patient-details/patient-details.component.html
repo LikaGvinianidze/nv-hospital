@@ -1,0 +1,214 @@
+<div class="patient-detail-outher" *ngIf="dataLoaded | async">
+  <div class="row">
+    <div class="col-xl-3 col-lg-4">
+      <div class="m-portlet m-portlet--full-height">
+        <div class="m-portlet__body">
+          <div class="m-card-profile">
+            <div class="m-card-profile__title m--hide">
+              Your Profile
+            </div>
+            <div class="m-card-profile__pic">
+              <div class="m-card-user__pic">
+                <div class="m-card-user__no-photo m--bg-fill-primary patient-detail-avatarID">
+                  <span class="nm-fm-fts"><span class="nametrimmed">{{PatientData.attributes.first_name}}</span>
+                  <span style="font-size:22px">.</span> <span class="familytrimmed">{{PatientData.attributes.last_name}}</span>
+                  </span>
+                </div>
+              </div>
+              <!-- <div class="m-card-profile__pic-wrapper">
+                                <img src="./assets/images/user-img.jpg" alt="">
+                            </div> -->
+            </div>
+            <div class="m-card-profile__details">
+              <span class="m-card-profile__name">{{PatientData.attributes.first_name}} <span>&nbsp;</span>{{PatientData.attributes.last_name}}</span>
+              <a href="" class="m-card-profile__email m-link">{{PatientData.attributes.primary_mail}}</a>
+            </div>
+          </div>
+          <ul class="m-nav m-nav--hover-bg m-portlet-fit--sides">
+            <li class="m-nav__separator m-nav__separator--fit"></li>
+            <li class="m-nav__section m--hide">
+              <span class="m-nav__section-text">Section</span>
+            </li>
+            <li class="m-nav__item">
+              <a href="?page=header/profile&amp;demo=default" class="m-nav__link">
+                <i class="m-nav__link-icon flaticon-profile-1"></i>
+                <span class="m-nav__link-title">
+                  <span class="m-nav__link-wrap">
+                    <span class="m-nav__link-text">ჩემი პროფილი</span>
+                    <span class="m-nav__link-badge">
+                      <span class="m-badge m-badge--success">2</span>
+                    </span>
+                  </span>
+                </span>
+              </a>
+            </li>
+            <li class="m-nav__item">
+              <a href="?page=header/profile&amp;demo=default" class="m-nav__link">
+                <i class="m-nav__link-icon flaticon-share"></i>
+                <span class="m-nav__link-text">ტექსტი</span>
+              </a>
+            </li>
+
+          </ul>
+          <div class="m-portlet__body-separator"></div>
+          <div class="m-widget1 m-widget1--paddingless">
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-9 col-lg-8">
+      <div class="m-portlet m-portlet--full-height m-portlet--tabs  ">
+        <div class="m-portlet__head">
+
+        </div>
+        <div class="m-portlet__body">
+          <form class="m-form m-form--fit m-form--label-align-right">
+            <div class="m-portlet__body">
+              <div class="tabs-container-bk">
+                <mat-tab-group>
+                  <mat-tab label="პირადი ინფორმაცია">
+                    <div class="tab-cont-inner">
+                      <div class="form-group m-form__group row">
+                        <div class="col-12 ml-auto">
+                          <h3 class="m-form__section title-top-tabs">1.პერსონალური მონაცემები</h3>
+                        </div>
+                      </div>
+                      <!-- name/lastname -->
+                      <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-2 col-form-label">სახელი, გვარი </label>
+                        <div class="col-7">
+                          <input class="form-control m-input" type="text" value="{{PatientData.attributes.first_name}} , {{PatientData.attributes.last_name}}">
+                        </div>
+                      </div>
+                      <!--end  name/lastname -->
+                      <!-- pid -->
+                      <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-2 col-form-label">პირადი ნომერი</label>
+                        <div class="col-7">
+                          <input class="form-control m-input" type="text" value="{{PatientData.attributes.pid}}">
+                        </div>
+                      </div>
+                      <!--end  pid -->
+
+                      <!-- start form group -->
+                      <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-2 col-form-label">სქესი</label>
+                        <div class="col-7">
+                          <mat-radio-group>
+                            <mat-radio-button checked value="1">მამრობითი</mat-radio-button>
+                            <mat-radio-button value="2">მდედრობითი</mat-radio-button>
+                          </mat-radio-group>
+                        </div>
+                      </div>
+                      <!-- end start form group -->
+
+                      <!--  start form group -->
+                      <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-2 col-form-label">ტელეფონი</label>
+                        <div class="col-7">
+                          <input class="form-control m-input" type="number" value="{{PatientData.attributes.primary_phone}}">
+                        </div>
+                      </div>
+                      <!--end start form group -->
+                      <!-- start form group -->
+                      <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-2 col-form-label">ელ.ფოსტა</label>
+                        <div class="col-7">
+                          <input class="form-control m-input" type="email" value="{{PatientData.attributes.primary_mail}}">
+                        </div>
+                      </div>
+                      <!--end start form group-->
+                      <!-- start form group -->
+                      <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-2 col-form-label">ფიზიკური მისამართი</label>
+                        <div class="col-7">
+                          <input class="form-control m-input" type="text" value="{{PatientData.attributes.physical_address}}">
+                        </div>
+                      </div>
+                      <!--end start form group-->
+                      <!-- start form group -->
+                      <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-2 col-form-label">იურიდიული მისამართი</label>
+                        <div class="col-7">
+                          <input class="form-control m-input" type="text" value="{{PatientData.attributes.legal_address}}">
+                        </div>
+                      </div>
+                      <!--end start form group-->
+                      <!--start form group -->
+                      <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-2 col-form-label">მოქალაქეობა</label>
+                        <div class="col-7">
+                          <input class="form-control m-input" type="text" value="{{PatientData.attributes.citizenship}}">
+                        </div>
+                      </div>
+                      <!--end start form group-->
+                      <!--start form group -->
+                      <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-2 col-form-label">ოჯახური მდგომარეობა</label>
+                        <div class="col-7">
+                          <input class="form-control m-input" type="text" value="{{PatientData.attributes.marital_status}}">
+                        </div>
+                      </div>
+                      <!--end start form group-->
+                      <!-- start form group -->
+                      <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-2 col-form-label">სამუშაო ადგილი</label>
+                        <div class="col-7">
+                          <input class="form-control m-input" type="text" value="სამუშაო ადგილი">
+                        </div>
+                      </div>
+                      <!--end start form group-->
+                      <!-- start form group -->
+                      <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-2 col-form-label">თანამდებობა</label>
+                        <div class="col-7">
+                          <input class="form-control m-input" type="text" value="თანამდებობა">
+                        </div>
+                      </div>
+                      <!--end start form group-->
+                      <!-- start form group -->
+                      <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-2 col-form-label">რეკომენდატორი</label>
+                        <div class="col-7">
+                          <input class="form-control m-input" type="text" value="{{PatientData.attributes.recommendator_name}}">
+                        </div>
+                      </div>
+                      <!--end start form group-->
+                      <!-- start form group -->
+                      <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-2 col-form-label">შენიშვნა</label>
+                        <div class="col-7">
+                          <textarea class="form-control m-input" value="შენიშვნა"></textarea>
+                        </div>
+                      </div>
+                      <!--end start form group-->
+                      <div class="m-portlet__foot m-portlet__foot--fit">
+                        <div class="m-form__actions">
+                          <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col-7">
+                              <button type="reset" class="btn btn-accent m-btn m-btn--air m-btn--custom">შენახვა</button>&nbsp;&nbsp;
+
+                              <button type="reset" class="btn btn-secondary m-btn m-btn--air m-btn--custom">დაბრუნება</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </mat-tab>
+                  <mat-tab label="ამბულატორია"> ამბულატორია </mat-tab>
+                  <mat-tab label="სტაციონარი"> სტაციონარი </mat-tab>
+                </mat-tab-group>
+              </div>
+
+
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

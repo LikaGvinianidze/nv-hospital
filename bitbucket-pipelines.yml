@@ -1,0 +1,14 @@
+image: dpolyakov/docker-node-latest-with-rsync
+
+pipelines:
+  branches:
+    staging:
+      - step:
+          caches:
+            - node
+          script:
+            - npm install -g npm
+            - npm ci || npm install
+            - npm install
+            - npm run build-prod
+            - rsync -av --omit-dir-times --no-perms dist/ $CI_USER@$CI_HOST:$CI_PATH

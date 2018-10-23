@@ -1,0 +1,115 @@
+<div class="row flex-end">
+  <button mat-raised-button color="primary" class="float-right">ახალი პაციენტი</button>
+</div>
+<div class="row row-up">
+  <div class="col-md-4">
+    <mat-form-field class="main-search">
+      <input matInput placeholder="ძებნა..." [(ngModel)]="searchText">
+      
+    </mat-form-field>
+  </div>
+
+
+  <div class="col-md-4">
+    <button mat-raised-button color="primary" (click)="toggleShowDiv('divA')" class="float-right">ფილტრები</button>
+  </div>
+</div>
+<div class="filters slide" [@slideInOut]="animationState" class="divA">
+  <div class="row">
+    <div class="col-md-12">
+
+      <h5>მისამართი</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <mat-form-field>
+        <mat-select placeholder="რეგიონი">
+          <mat-option *ngFor="let region of regions" [value]="region.attributes.name">
+            {{region.attributes.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3">
+      <mat-form-field>
+        <mat-select placeholder="მუნიციპალიტეტი">
+          <mat-option *ngFor="let municipalitie of municipalities" [value]="municipalitie.attributes.name">
+            {{municipalitie.attributes.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3">
+      <mat-form-field>
+        <mat-select placeholder="დასახელება">
+          <mat-option *ngFor="" [value]="">
+
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3">
+      <mat-form-field>
+        <input matInput placeholder="ქუჩა">
+      </mat-form-field>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+
+      <h5>პირადი მონაცემები</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <mat-form-field>
+        <input matInput placeholder="სტატუსი">
+      </mat-form-field>
+    </div>
+    <div class="col-md-2">
+      <mat-form-field>
+        <input matInput placeholder="სქესი">
+      </mat-form-field>
+    </div>
+    <div class="col-md-2">
+      <mat-form-field>
+        <input matInput placeholder="მოქალაქეობა">
+      </mat-form-field>
+    </div>
+    <div class="col-md-2">
+      <mat-form-field>
+        <input matInput placeholder="ოჯახური მდგომარეობა">
+      </mat-form-field>
+    </div>
+    <div class="col-md-4">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+
+
+      <h5>დამატებითი ინფორმაცია</h5>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <mat-form-field>
+        <input matInput placeholder="სადაზღვეო კომპანია">
+      </mat-form-field>
+    </div>
+    <div class="col-md-3">
+      <mat-form-field>
+        <input matInput placeholder="რეკომენდატორი">
+      </mat-form-field>
+    </div>
+  </div>
+
+</div>

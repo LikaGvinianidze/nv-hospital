@@ -1,0 +1,25 @@
+button {
+  font-family: "BPG Arial", sans-serif;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+.row-up {
+  padding-top: 10px;
+
+  .main-search {
+    width: 500px;
+  }
+
+  .mat-form-field-label {
+    font-family: "BPG Arial", sans-serif !important;
+  }
+}
+
+.divA {
+  .mat-form-field-infix {
+    font-family: "BPG Arial", sans-serif;
+  }
+}

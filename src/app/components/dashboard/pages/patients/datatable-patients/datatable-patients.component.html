@@ -1,0 +1,112 @@
+<!--begin: Datatable -->
+<!-- <app-patients-search></app-patients-search> -->
+<input #SearchInput placeholder="search..." type="text" (blur)="ValueChanged($event)" >
+<div class="m_datatable m-datatable m-datatable--default m-datatable--loaded" id="column_rendering">
+  <table class="m-datatable__table" style="display: block; min-height: 300px; overflow-x: auto;">
+    <thead class="m-datatable__head">
+      <tr class="m-datatable__row" style="left: 0px;">
+        <th style="width:40px;" data-field="RecordID" class="m-datatable__cell--center m-datatable__cell m-datatable__cell--check">
+          <span style="width: 40px;">
+            N
+          </span>
+        </th>
+        <th style="width:200px;" data-field="CompanyAgent" class="m-datatable__cell m-datatable__cell--sort">
+          <span>პაციენტი</span>
+        </th>
+        <th style="width:200px;" data-field="ShipCountry" class="m-datatable__cell m-datatable__cell--sort">
+          <span>პირადი ნომერი</span>
+        </th>
+        <th style="width:200px;" data-field="ShipAddress" class="m-datatable__cell m-datatable__cell--sort">
+          <span>ტელეფონი</span>
+        </th>
+        <th style="width:200px;" data-field="CompanyEmail" class="m-datatable__cell m-datatable__cell--sort">
+          <span>მისამართი</span>
+        </th>
+        <th style="width:150px;" data-field="Status" class="m-datatable__cell m-datatable__cell--sort th-righted-b">
+          <span>რეგისტრაციის თარიღი</span>
+        </th>
+        <th style="width:150px;" data-field="Type" class="m-datatable__cell m-datatable__cell--sort th-righted-a">
+          <span>მოქმედებები</span>
+        </th>
+        <!-- paginate: { itemsPerPage: 11, currentPage: p, id: 'patientindex' } -->
+      </tr>
+    </thead>
+    
+    <tbody class="m-datatable__body">
+
+      <!-- each tr row -->
+      <tr data-row="0" class="m-datatable__row tabeldata-rowLink" style="left: 0px;" *ngFor="let tabledata of tabledatas | paginate: { itemsPerPage: 10, currentPage: p };">
+
+        <td style="width:40px;" class="m-datatable__cell--center m-datatable__cell m-datatable__cell--check" data-field="RecordID">
+          <span style="width: 40px;">
+            {{ tabledata.id }}
+          </span>
+        </td>
+        <td style="width:200px;" data-field="CompanyAgent" class="m-datatable__cell">
+          <span>
+            <div class="m-card-user m-card-user--sm">
+              <div class="m-card-user__pic" (click)="onSelectPatient(tabledata)">
+                <div class="m-card-user__no-photo m--bg-fill-primary">
+                  <span class="nm-fm-fts"><span class="nametrimmedsm">{{tabledata.attributes.first_name}}</span> <span class="smdot">.</span> <span class="familytrimmedsm">{{tabledata.attributes.last_name}}</span> </span>
+                </div>
+              </div>
+              <div class="m-card-user__details">
+
+                <span class=" m-card-user__name mcard-username "><span id="nameuntrimed">{{tabledata.attributes.first_name}}</span><span>&nbsp;</span>
+                  <span id="familyuntrimed ">{{tabledata.attributes.last_name}}</span></span>
+                <a href=" " class="m-card-user__email m-link user-county-num ">{{tabledata.attributes.age}}
+                  {{tabledata.attributes.citizenship}} </a>
+
+              </div>
+            </div>
+          </span>
+        </td>
+        <td style="width:200px; " data-field="ShipCountry " class="m-datatable__cell ">
+          <span>{{tabledata.attributes.pid}}</span>
+        </td>
+        <td style="width:200px; " data-field="ShipAddress " class="m-datatable__cell ">
+          <span>{{tabledata.attributes.primary_phone}}</span>
+        </td>
+        <td style="width:200px; " data-field="CompanyEmail " class="m-datatable__cell ">
+          <span>
+            <span>{{tabledata.attributes.physical_address}}</span>
+          </span>
+        </td>
+        <td style="width:150px; " data-field="Status " class="m-datatable__cell th-righted-a ">
+          <span>
+            <span class="m-badge m-badge--primary m-badge--wide ">{{tabledata.attributes.created_at}}</span>
+
+          </span>
+        </td>
+
+        <td style="width:150px; " data-field="Actions " class="m-datatable__cell th-righted-c ">
+          <span style="overflow: visible; position: relative; ">
+
+
+            <a class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill"
+              title="Edit details" (click)="onSelectPatient(tabledata)">
+              <i class="fa fa-ellipsis-h "></i>
+            </a>
+
+          </span>
+        </td>
+      </tr>
+
+
+      <!-- end each tr row -->
+
+
+
+    </tbody>
+  </table>
+  <div class="row">
+    <pagination-controls 
+    class="my-pagination"
+    (pageChange)="p = $event"
+    previousLabel=""
+    nextLabel="">
+  </pagination-controls>
+  </div>
+  <!-- pagination goes here -->
+</div>
+<!--end: Datatable -->
